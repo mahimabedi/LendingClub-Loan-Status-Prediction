@@ -7,3 +7,6 @@ The data used in this project is publically shared data from LendingClub, a peer
 Link: https://www.lendingclub.com/info/download-data.action
 CSV File 1: “2013 – 2014”
 CSV File 2: “2012 – 2013”
+
+CHALLENGE
+Predictive analysis on skewed and unbalanced data
