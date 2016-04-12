@@ -132,7 +132,7 @@ predM8train<-predict(M8,newdata=train)
 SSE<-sum((predM8train-train$loan_decision)^2)
 #baseline errors
 SST<-sum((1-train$loan_decision)^2)
-# 67% decrease in errors over baseline
+
 
 #test set predictions
 predM8test<-predict(M8,newdata=test)
@@ -141,7 +141,7 @@ SSE<-sum((predM8test-test$loan_decision)^2)
 #baseline errors
 SST<-sum((1-test$loan_decision)^2)
 ((SST-SSE)/SST)*100
-# 33.8% decrease in errors over baseline
+
 
 #tuning the mtry parameters and increase the ntree to 500 for final model.
 x<-data.frame(train[,4],train[,7],train[,10],train[,11],train[,15],train[,17],train[,21],train[,19],train[,36])
@@ -162,7 +162,7 @@ predM9train<-predict(M9,newdata=train)
 SSE<-sum((predMtrain-train$loan_decision)^2)
 SST<-sum((1-train$loan_decision)^2)
 (SST-SSE)/SST*100
-# 67% decrease in errors over baseline
+
 
 #prediction on testing set
 predM9test<-predict(M9,newdata=test,type="class")
@@ -171,12 +171,12 @@ SSE<-sum((predM9test-test$loan_decision)^2)
 #baseline errors
 SST<-sum((1-test$loan_decision)^2)
 (SST-SSE)/SST*100
-# 36% decrease in errors over baseline
+
 
 #Model accuracy-using higher threshold of 0.6 since aim is to reduce the false positives
 table(test$loan_decision,predM9test>0.65)
 (28415+6770)/nrow(test)*100
-#73.38%
+
 
 #prediction probabilities
 pred2 <- predict(M9, newdata=test,type="response")
@@ -189,4 +189,4 @@ abline(a=0,b=1,lwd=2,lty=2,col="green")
 
 #AUC absoulte number
 as.numeric(performance(preds,"auc")@y.values)
-#.6632
+
