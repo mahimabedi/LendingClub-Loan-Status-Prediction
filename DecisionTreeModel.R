@@ -29,7 +29,7 @@ set.seed(1000)
 split = sample.split(loan1, SplitRatio = 0.5)
 loan3 = subset(loan1, split==TRUE)
 loan<-rbind(loan3,loan2)
-table(loan$loan_decision[loan$loan_decision=="NO"])/table(loan$loan_decision[loan$loan_decision=="YES"])
+table(loan$loan_decision[loan$loan_decision==0])/table(loan$loan_decision[loan$loan_decision==1])
 #24% negative values for dependent variable
 
 #creating "verified" column
